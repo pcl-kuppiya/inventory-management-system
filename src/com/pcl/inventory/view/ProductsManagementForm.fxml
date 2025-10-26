@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="784.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pcl.inventory.controller.ProductsManagementFormController">
+   <children>
+      <Label layoutX="26.0" layoutY="12.0" text="Products Mangement" textFill="#07076b">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="42.0" prefHeight="346.0" prefWidth="761.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+         <children>
+            <TextField layoutX="21.0" layoutY="14.0" promptText="Search Products" />
+            <ComboBox layoutX="203.0" layoutY="14.0" prefWidth="150.0" promptText="Filter By Category" />
+            <ComboBox layoutX="381.0" layoutY="14.0" prefWidth="150.0" promptText="Filter By Supplier" />
+            <Label layoutX="19.0" layoutY="59.0" text="Product Information" textFill="#07076b">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="21.0" layoutY="93.0" promptText="Product Id" />
+            <TextField layoutX="215.0" layoutY="93.0" promptText="Name" />
+            <TextField layoutX="21.0" layoutY="137.0" promptText="Description" />
+            <ComboBox layoutX="414.0" layoutY="93.0" prefWidth="150.0" promptText="Category" />
+            <ComboBox layoutX="597.0" layoutY="93.0" prefWidth="150.0" promptText="Supplier" />
+            <TextField layoutX="215.0" layoutY="137.0" promptText="Unit Price" />
+            <TextField layoutX="425.0" layoutY="137.0" promptText="Stock" />
+            <TextField layoutX="598.0" layoutY="137.0" promptText="User" />
+            <TableView layoutX="16.0" layoutY="212.0" prefHeight="128.0" prefWidth="730.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Id" />
+                <TableColumn prefWidth="75.0" text="Name" />
+                  <TableColumn prefWidth="75.0" text="Name" />
+                  <TableColumn prefWidth="75.0" text="Desc" />
+                  <TableColumn prefWidth="75.0" text="Category" />
+                  <TableColumn prefWidth="75.0" text="Supplier" />
+                  <TableColumn prefWidth="75.0" text="Unit Price" />
+                  <TableColumn prefWidth="75.0" text="Stock" />
+                  <TableColumn prefWidth="57.0" text="User" />
+                  <TableColumn prefWidth="93.0" text="Action" />
+              </columns>
+            </TableView>
+            <Button layoutX="673.0" layoutY="168.0" mnemonicParsing="false" style="-fx-background-color: #27ae60;" text="Save" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
