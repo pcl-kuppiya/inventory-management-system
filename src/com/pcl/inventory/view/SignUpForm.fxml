@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pcl.inventory.controller.SignUpFormController">
+<AnchorPane fx:id="context" prefHeight="400.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pcl.inventory.controller.SignUpFormController">
    <children>
       <Label layoutX="32.0" layoutY="22.0" text="Insert your details for signup...." textFill="#0f054a">
          <font>
@@ -17,12 +16,12 @@
       </Label>
       <TextField layoutX="45.0" layoutY="56.0" prefHeight="32.0" prefWidth="195.0" promptText="Email" />
       <PasswordField layoutX="47.0" layoutY="194.0" prefHeight="32.0" prefWidth="195.0" promptText="Password" />
-      <Button layoutX="47.0" layoutY="301.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #16a085;" text="Already have an account" textFill="#f8f8f8">
+      <Button layoutX="47.0" layoutY="301.0" mnemonicParsing="false" onAction="#navigateLoginFormOnAction" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #16a085;" text="Already have an account" textFill="#f8f8f8">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="45.0" layoutY="236.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #2c3e50;" text="Signup" textFill="#f8f8f8">
+      <Button layoutX="45.0" layoutY="236.0" mnemonicParsing="false" onAction="#signupOnAction" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #2c3e50;" text="Signup" textFill="#f8f8f8">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
