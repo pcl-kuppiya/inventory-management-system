@@ -1,5 +1,6 @@
 package com.pcl.inventory.dao.custom.impl;
 
+import com.pcl.inventory.dao.CrudUtill;
 import com.pcl.inventory.dao.custom.UserDao;
 import com.pcl.inventory.db.DbConnection;
 import com.pcl.inventory.entity.User;
@@ -18,14 +19,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean save(User user) throws SQLException, ClassNotFoundException {
 
-        Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement ps = connection.prepareStatement("INSERT INTO  user VALUES(?,?,?,?,?)");
-        ps.setString(1,user.getId());
-        ps.setString(2,user.getEmail());
-        ps.setString(3,user.getDisplayName());
-        ps.setString(4,user.getContact());
-        ps.setString(5,user.getPassword());
-       return ps.executeUpdate()>0;
+      return   CrudUtill.execute("INSERT INTO user VALUES(?,?,?,?,?)",user.getId(),user.getEmail(),user.getDisplayName(),user.getContact(),user.getPassword());
 
     }
 
