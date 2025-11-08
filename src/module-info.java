@@ -7,4 +7,5 @@ module inventory {
 
     opens com.pcl.inventory.controller to javafx.fxml;
     exports com.pcl.inventory;
+    exports com.pcl.inventory.view.tm;
 }

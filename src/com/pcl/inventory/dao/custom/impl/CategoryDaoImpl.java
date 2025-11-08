@@ -6,6 +6,7 @@ import com.pcl.inventory.entity.Category;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDaoImpl implements CategoryDao {
@@ -52,5 +53,23 @@ public class CategoryDaoImpl implements CategoryDao {
 
         }
         return null;
+    }
+
+    @Override
+    public List<Category> findCategoryByName(String name) throws SQLException, ClassNotFoundException {
+       List<Category>categoryList=new ArrayList<>();
+        ResultSet set = CrudUtill.execute("SELECT * FROM category WHERE name LIKE ?",
+                name
+
+        );
+        while (set.next()) {
+            categoryList.add(new Category(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3)
+            ));
+
+        }
+        return  categoryList;
     }
 }

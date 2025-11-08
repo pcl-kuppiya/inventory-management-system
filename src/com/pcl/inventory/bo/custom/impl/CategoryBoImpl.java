@@ -4,10 +4,13 @@ import com.pcl.inventory.bo.custom.CategoryBo;
 import com.pcl.inventory.dao.DaoFactory;
 import com.pcl.inventory.dao.custom.CategoryDao;
 import com.pcl.inventory.dto.request.RequestCategoryDto;
+import com.pcl.inventory.dto.response.ResponseCategoryDto;
 import com.pcl.inventory.entity.Category;
 import com.pcl.inventory.utill.DaoType;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryBoImpl implements CategoryBo {
     CategoryDao categoryDao= DaoFactory.getInstance().getDao(DaoType.CATEGORY);
@@ -34,6 +37,23 @@ public class CategoryBoImpl implements CategoryBo {
             return  "CAT-" + lastDigit;
         }
             return "CAT-1";
+
+    }
+
+    @Override
+    public List<ResponseCategoryDto> getCategoryByName(String searchText) throws SQLException, ClassNotFoundException {
+        List<ResponseCategoryDto> responseCategoryDtos = new ArrayList<>();
+        String name="%"+searchText+"%";
+        List<Category> categoryByName = categoryDao.findCategoryByName(name);
+        for (Category category:categoryByName) {
+            responseCategoryDtos.add(new ResponseCategoryDto(
+                    category.getId(),
+                    category.getName(),
+                    category.getDescription()
+            ));
+
+        }
+        return responseCategoryDtos;
 
     }
 }
