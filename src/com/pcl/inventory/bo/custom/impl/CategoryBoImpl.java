@@ -21,4 +21,19 @@ public class CategoryBoImpl implements CategoryBo {
               )
         );
     }
+
+    @Override
+    public String getCategoryId() throws SQLException, ClassNotFoundException {
+        Category lastCategory = categoryDao.fetchLastCategory();
+        if (lastCategory != null) {
+            String lastCategoryId = lastCategory.getId();
+            String[] splittedId = lastCategoryId.split("-");
+            String lastCharacterAsString = splittedId[1];
+            int lastDigit = Integer.parseInt(lastCharacterAsString);
+            lastDigit++;
+            return  "CAT-" + lastDigit;
+        }
+            return "CAT-1";
+
+    }
 }

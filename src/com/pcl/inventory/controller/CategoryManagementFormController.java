@@ -19,6 +19,20 @@ public class CategoryManagementFormController {
     public TextField txtDescription;
     public Button btnSave;
     CategoryBo categoryBo= BoFactory.getInstance().getBoFactory(BoType.CATEGORY);
+
+    public void initialize() {
+        try {
+            setCategoryId();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setCategoryId() throws SQLException, ClassNotFoundException {
+        String categoryId = categoryBo.getCategoryId();
+        txtId.setText(categoryId);
+    }
+
     public void saveOnAction(ActionEvent actionEvent) {
         if (btnSave.getText().equals("Save")) {
             try {
@@ -30,6 +44,7 @@ public class CategoryManagementFormController {
                         )
                 );
                 if (isSaved) {
+                    setCategoryId();
                     new Alert(Alert.AlertType.INFORMATION,"Category has been saved successfully!").show();
                 }
             }catch (ClassNotFoundException| SQLException e){

@@ -6,4 +6,5 @@ import java.sql.SQLException;
 
 public interface CategoryBo {
     public boolean saveCategory(RequestCategoryDto categoryDto) throws SQLException, ClassNotFoundException;
+    public String getCategoryId() throws SQLException, ClassNotFoundException;
 }

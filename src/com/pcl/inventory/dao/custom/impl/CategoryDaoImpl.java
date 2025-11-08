@@ -4,6 +4,7 @@ import com.pcl.inventory.dao.CrudUtill;
 import com.pcl.inventory.dao.custom.CategoryDao;
 import com.pcl.inventory.entity.Category;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,5 +36,21 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public List<Category> findAll() {
         return List.of();
+    }
+
+    @Override
+    public Category fetchLastCategory() throws SQLException, ClassNotFoundException {
+        ResultSet set = CrudUtill.execute(
+                "SELECT * FROM category ORDER BY CAST(SUBSTRING(id,5)AS UNSIGNED)DESC LIMIT 1"
+        );
+        if (set.next()) {
+            return new Category(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3)
+            );
+
+        }
+        return null;
     }
 }
