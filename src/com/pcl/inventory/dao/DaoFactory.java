@@ -1,5 +1,6 @@
 package com.pcl.inventory.dao;
 
+import com.pcl.inventory.dao.custom.impl.CategoryDaoImpl;
 import com.pcl.inventory.dao.custom.impl.UserDaoImpl;
 import com.pcl.inventory.utill.DaoType;
 
@@ -15,8 +16,8 @@ public class DaoFactory {
     }
     public <T>T getDao(DaoType daoType){
         switch (daoType){
-            case USER:
-                return(T) new UserDaoImpl();
+            case USER: return(T) new UserDaoImpl();
+            case CATEGORY:return (T) new CategoryDaoImpl();
                 default:return null;
         }
     }

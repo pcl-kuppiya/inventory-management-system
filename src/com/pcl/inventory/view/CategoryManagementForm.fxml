@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane opacity="0.95" prefHeight="400.0" prefWidth="784.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pcl.inventory.controller.CategoryManagementFormController">
    <children>
       <Label layoutX="22.0" layoutY="15.0" text="Categories Mangement" textFill="#07076b">
@@ -19,12 +18,12 @@
       </Label>
       <AnchorPane layoutX="22.0" layoutY="60.0" prefHeight="317.0" prefWidth="745.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
-            <TextField layoutX="27.0" layoutY="14.0" prefHeight="25.0" prefWidth="211.0" promptText="Search Categories" />
+            <TextField fx:id="txtSearch" layoutX="27.0" layoutY="14.0" prefHeight="25.0" prefWidth="211.0" promptText="Search Categories" />
             <Separator layoutX="3.0" layoutY="51.0" prefHeight="15.0" prefWidth="745.0" />
-            <TextField layoutX="27.0" layoutY="78.0" prefHeight="25.0" prefWidth="111.0" promptText="Category ID" />
-            <TextField layoutX="173.0" layoutY="78.0" prefHeight="25.0" prefWidth="211.0" promptText="Category Name" />
-            <TextField layoutX="420.0" layoutY="78.0" prefHeight="25.0" prefWidth="232.0" promptText="Category Name" />
-            <Button layoutX="667.0" layoutY="75.0" mnemonicParsing="false" style="-fx-background-color: #27ae60;" text="Save" textFill="#f8f8f8">
+            <TextField fx:id="txtId" layoutX="27.0" layoutY="78.0" prefHeight="25.0" prefWidth="111.0" promptText="Category ID" />
+            <TextField fx:id="txtName" layoutX="173.0" layoutY="78.0" prefHeight="25.0" prefWidth="211.0" promptText="Category Name" />
+            <TextField fx:id="txtDescription" layoutX="420.0" layoutY="78.0" prefHeight="25.0" prefWidth="232.0" promptText="Category Name" />
+            <Button fx:id="btnSave" layoutX="667.0" layoutY="75.0" mnemonicParsing="false" onAction="#saveOnAction" style="-fx-background-color: #27ae60;" text="Save" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
