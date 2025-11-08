@@ -14,8 +14,8 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="45.0" layoutY="56.0" prefHeight="32.0" prefWidth="195.0" promptText="Email" />
-      <PasswordField layoutX="47.0" layoutY="194.0" prefHeight="32.0" prefWidth="195.0" promptText="Password" />
+      <TextField fx:id="txtEmail" layoutX="45.0" layoutY="56.0" prefHeight="32.0" prefWidth="195.0" promptText="Email" />
+      <PasswordField fx:id="txtPassword" layoutX="47.0" layoutY="194.0" prefHeight="32.0" prefWidth="195.0" promptText="Password" />
       <Button layoutX="47.0" layoutY="301.0" mnemonicParsing="false" onAction="#navigateLoginFormOnAction" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #16a085;" text="Already have an account" textFill="#f8f8f8">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -26,7 +26,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TextField layoutX="45.0" layoutY="104.0" prefHeight="32.0" prefWidth="195.0" promptText="Display Name" />
-      <TextField layoutX="45.0" layoutY="148.0" prefHeight="32.0" prefWidth="195.0" promptText="Contact Number" />
+      <TextField fx:id="txtDisplayName" layoutX="45.0" layoutY="104.0" prefHeight="32.0" prefWidth="195.0" promptText="Display Name" />
+      <TextField fx:id="txtContactNumber" layoutX="45.0" layoutY="148.0" prefHeight="32.0" prefWidth="195.0" promptText="Contact Number" />
    </children>
 </AnchorPane>
