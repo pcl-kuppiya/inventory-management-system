@@ -6,6 +6,7 @@ import com.pcl.inventory.dao.custom.UserDao;
 import com.pcl.inventory.dao.custom.impl.UserDaoImpl;
 import com.pcl.inventory.db.DbConnection;
 import com.pcl.inventory.dto.request.RequestUserDto;
+import com.pcl.inventory.dto.response.ResponseUserDto;
 import com.pcl.inventory.entity.User;
 import com.pcl.inventory.utill.DaoType;
 import com.pcl.inventory.utill.security.PasswordManager;
@@ -27,5 +28,27 @@ public class UserBoImpl implements UserBo {
                 new PasswordManager().encode(requestUserDto.getPassword())
         ));
             }
+
+    @Override
+    public ResponseUserDto login(String email, String password) throws SQLException, ClassNotFoundException {
+        User user = userDao.findByEmail(email);
+        if (user!=null){
+            if (new PasswordManager().check(password,user.getPassword())){
+                return new ResponseUserDto(
+                        user.getEmail(),
+                        user.getDisplayName(),
+                        "200",
+                        "Login successful"
+                );
+            }
+            return new ResponseUserDto(
+                    user.getEmail(),
+                    null,
+                    "401",
+                    "Password incorrect"
+            );
+        }
+        return null;
+    }
 }
 
