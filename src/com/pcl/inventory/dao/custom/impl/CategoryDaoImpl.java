@@ -20,8 +20,12 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public boolean update(Category category) {
-        return false;
+    public boolean update(Category category) throws SQLException, ClassNotFoundException {
+      return  CrudUtill.execute("UPDATE category SET name=?,description=? WHERE id=?",
+                category.getName(),
+                category.getDescription(),
+                category.getId()
+                );
     }
 
     @Override

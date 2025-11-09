@@ -10,5 +10,6 @@ public interface CategoryBo {
     public boolean saveCategory(RequestCategoryDto categoryDto) throws SQLException, ClassNotFoundException;
     public String getCategoryId() throws SQLException, ClassNotFoundException;
     public List<ResponseCategoryDto> getCategoryByName(String searchText) throws SQLException, ClassNotFoundException;
+    public boolean updateCategory(RequestCategoryDto categoryDto) throws SQLException, ClassNotFoundException;
 
 }

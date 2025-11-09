@@ -56,4 +56,15 @@ public class CategoryBoImpl implements CategoryBo {
         return responseCategoryDtos;
 
     }
+
+    @Override
+    public boolean updateCategory(RequestCategoryDto categoryDto) throws SQLException, ClassNotFoundException {
+        return   categoryDao.update(
+             new Category(
+                     categoryDto.getId(),
+                     categoryDto.getName(),
+                     categoryDto.getDescription()
+             )
+     );
+    }
 }

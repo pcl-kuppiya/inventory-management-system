@@ -46,12 +46,27 @@ public class CategoryManagementFormController {
 
         });
 
+        tblCategory.getSelectionModel().selectedItemProperty().addListener
+                ((observable, oldValue, newValue) -> {
+                        if (newValue !=null){
+                            setData((CategoryTm)newValue);
+                        }
+
+        });
+
         try {
             setCategoryId();
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void setData(CategoryTm newValue) {
+        txtId.setText(newValue.getId());
+        txtName.setText(newValue.getName());
+        txtDescription.setText(newValue.getDescription());
+        btnSave.setText("Update");
     }
 
     private void setTableData(String searchText) throws SQLException, ClassNotFoundException {
@@ -98,7 +113,34 @@ public class CategoryManagementFormController {
             }
 
         }else {
-            //update
+            try {
+                boolean isUpdated = categoryBo.updateCategory(
+                        new RequestCategoryDto(
+                                txtId.getText(),
+                                txtName.getText(),
+                                txtDescription.getText()
+                        )
+                );
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.INFORMATION,"Category has been updated successfully!").show();
+                    clearFields();
+                    setTableData(searchText);
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
+                }
+            } catch (SQLException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private void clearFields() {
+        try {
+            setCategoryId();
+            txtName.clear();
+            txtDescription.clear();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }
