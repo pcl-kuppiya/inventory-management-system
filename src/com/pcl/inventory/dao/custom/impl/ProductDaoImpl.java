@@ -2,10 +2,12 @@ package com.pcl.inventory.dao.custom.impl;
 
 import com.pcl.inventory.dao.CrudUtill;
 import com.pcl.inventory.dao.custom.ProductDao;
+import com.pcl.inventory.entity.Category;
 import com.pcl.inventory.entity.Product;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
@@ -27,6 +29,20 @@ public class ProductDaoImpl implements ProductDao {
           );
       }return null;
 
+    }
+
+    @Override
+    public List<Category> getAllCategories() throws SQLException, ClassNotFoundException {
+        List<Category> categoryList=new ArrayList<>();
+        ResultSet set = CrudUtill.execute("SELECT * FROM category");
+        while(set.next()){
+            categoryList.add(new Category(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3)
+            ));
+        }
+        return categoryList;
     }
 
     @Override
