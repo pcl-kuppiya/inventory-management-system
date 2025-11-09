@@ -29,8 +29,8 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public boolean delete(String s) {
-        return false;
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+       return CrudUtill.execute("DELETE FROM category WHERE id=?",id);
     }
 
     @Override

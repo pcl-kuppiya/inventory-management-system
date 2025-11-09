@@ -67,4 +67,9 @@ public class CategoryBoImpl implements CategoryBo {
              )
      );
     }
+
+    @Override
+    public boolean deleteCategory(String id) throws SQLException, ClassNotFoundException {
+      return   categoryDao.delete(id);
+    }
 }

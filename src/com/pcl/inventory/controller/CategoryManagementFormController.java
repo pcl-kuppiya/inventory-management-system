@@ -81,6 +81,23 @@ public class CategoryManagementFormController {
                     cat.getDescription(),
                     btnDelete
             ));
+            btnDelete.setOnAction((event) -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this category?",
+                        ButtonType.YES, ButtonType.NO);
+                alert.showAndWait();
+                if (alert.getResult()==ButtonType.YES){
+                    try {
+                        boolean isDeleted = categoryBo.deleteCategory(cat.getCategoryId());
+                        if (isDeleted){
+                            new Alert(Alert.AlertType.INFORMATION,"Deleted...").show();
+                            setTableData(searchText);
+                            setCategoryId();
+                        }
+                    } catch (SQLException | ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
 
 
         }
@@ -107,6 +124,7 @@ public class CategoryManagementFormController {
                     setCategoryId();
                     setTableData(searchText);
                     new Alert(Alert.AlertType.INFORMATION,"Category has been saved successfully!").show();
+                    clearFields();
                 }
             }catch (ClassNotFoundException| SQLException e){
                 e.printStackTrace();
