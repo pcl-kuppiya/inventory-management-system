@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="784.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pcl.inventory.controller.ProductsManagementFormController">
    <children>
       <Label layoutX="26.0" layoutY="12.0" text="Products Mangement" textFill="#07076b">
@@ -19,22 +18,22 @@
       </Label>
       <AnchorPane layoutX="14.0" layoutY="42.0" prefHeight="346.0" prefWidth="761.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
-            <TextField layoutX="21.0" layoutY="14.0" promptText="Search Products" />
-            <ComboBox layoutX="203.0" layoutY="14.0" prefWidth="150.0" promptText="Filter By Category" />
-            <ComboBox layoutX="381.0" layoutY="14.0" prefWidth="150.0" promptText="Filter By Supplier" />
+            <TextField fx:id="txtSearchByName" layoutX="21.0" layoutY="14.0" promptText="Search Products" />
+            <ComboBox fx:id="cmbFilterByCat" layoutX="203.0" layoutY="14.0" prefWidth="150.0" promptText="Filter By Category" />
+            <ComboBox fx:id="cmbFilterBySupplier" layoutX="381.0" layoutY="14.0" prefWidth="150.0" promptText="Filter By Supplier" />
             <Label layoutX="19.0" layoutY="59.0" text="Product Information" textFill="#07076b">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="21.0" layoutY="93.0" promptText="Product Id" />
-            <TextField layoutX="215.0" layoutY="93.0" promptText="Name" />
-            <TextField layoutX="21.0" layoutY="137.0" promptText="Description" />
-            <ComboBox layoutX="414.0" layoutY="93.0" prefWidth="150.0" promptText="Category" />
-            <ComboBox layoutX="597.0" layoutY="93.0" prefWidth="150.0" promptText="Supplier" />
-            <TextField layoutX="215.0" layoutY="137.0" promptText="Unit Price" />
-            <TextField layoutX="425.0" layoutY="137.0" promptText="Stock" />
-            <TextField layoutX="598.0" layoutY="137.0" promptText="User" />
+            <TextField fx:id="txtId" layoutX="21.0" layoutY="93.0" promptText="Product Id" />
+            <TextField fx:id="txtName" layoutX="215.0" layoutY="93.0" promptText="Name" />
+            <TextField fx:id="txtDescription" layoutX="21.0" layoutY="137.0" promptText="Description" />
+            <ComboBox fx:id="cmbCategory" layoutX="414.0" layoutY="93.0" prefWidth="150.0" promptText="Category" />
+            <ComboBox fx:id="cmbSupplier" layoutX="597.0" layoutY="93.0" prefWidth="150.0" promptText="Supplier" />
+            <TextField fx:id="txtUnitPrice" layoutX="215.0" layoutY="137.0" promptText="Unit Price" />
+            <TextField fx:id="txtStock" layoutX="425.0" layoutY="137.0" promptText="Stock" />
+            <TextField fx:id="txtUser" layoutX="598.0" layoutY="137.0" promptText="User" />
             <TableView layoutX="16.0" layoutY="212.0" prefHeight="128.0" prefWidth="730.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Id" />

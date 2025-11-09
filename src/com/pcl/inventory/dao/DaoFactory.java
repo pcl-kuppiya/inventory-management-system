@@ -1,6 +1,7 @@
 package com.pcl.inventory.dao;
 
 import com.pcl.inventory.dao.custom.impl.CategoryDaoImpl;
+import com.pcl.inventory.dao.custom.impl.ProductDaoImpl;
 import com.pcl.inventory.dao.custom.impl.UserDaoImpl;
 import com.pcl.inventory.utill.DaoType;
 
@@ -18,6 +19,7 @@ public class DaoFactory {
         switch (daoType){
             case USER: return(T) new UserDaoImpl();
             case CATEGORY:return (T) new CategoryDaoImpl();
+            case PRODUCT:return (T) new ProductDaoImpl();
                 default:return null;
         }
     }
