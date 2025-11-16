@@ -1,5 +1,5 @@
 package com.pcl.inventory.utill;
 
 public enum BoType {
-    USER,CATEGORY,PRODUCT
+    USER,CATEGORY,PRODUCT,SUPPLIER
 }

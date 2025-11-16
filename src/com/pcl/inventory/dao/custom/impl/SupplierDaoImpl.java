@@ -84,4 +84,43 @@ public class SupplierDaoImpl implements SupplierDao {
        }
        return suppliers;
     }
+
+    @Override
+    public Supplier fetchLastSupplier() throws SQLException, ClassNotFoundException {
+     ResultSet set= CrudUtill.execute("SELECT * FROM supplier ORDER BY CAST(SUBSTRING(id,5)AS UNSIGNED)DESC LIMIT 1");
+        if (set.next()){
+            return new Supplier(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3),
+                    set.getString(4),
+                    set.getString(5),
+                    set.getString(6),
+                    set.getString(7),
+                    set.getString(8),
+                    set.getString(9)
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public List<Supplier> fetchSuppliersByName(String searchText) throws SQLException, ClassNotFoundException {
+        List<Supplier> suppliers = new ArrayList<>();
+        ResultSet set = CrudUtill.execute("SELECT * FROM supplier WHERE name LIKE ?", searchText);
+        while(set.next()){
+            suppliers.add(new Supplier(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3),
+                    set.getString(4),
+                    set.getString(5),
+                    set.getString(6),
+                    set.getString(7),
+                    set.getString(8),
+                    set.getString(9)
+            ));
+        }
+        return suppliers;
+    }
 }

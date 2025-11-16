@@ -86,4 +86,39 @@ public class SupplierBoImpl implements SupplierBo {
         }
         return responseSupplierDtoList;
     }
+
+    @Override
+    public String getSupplierId() throws SQLException, ClassNotFoundException {
+        Supplier lastSupplier = supplierDao.fetchLastSupplier();
+        if (lastSupplier != null){
+           String lastSupplierId=lastSupplier.getId();
+            String[] splitedArr = lastSupplierId.split("-");
+            String lastCharacterAsString=splitedArr[1];
+            int lastDigit=Integer.parseInt(lastCharacterAsString);
+            lastDigit++;
+            return "SUP-"+lastDigit;
+        }
+        return "SUP-1";
+    }
+
+    @Override
+    public List<ResponseSupplierDto> getSuppliersByName(String text) throws SQLException, ClassNotFoundException {
+        String searchText = "%"+text+"%";
+       List<ResponseSupplierDto> responseSupplierDtoList = new ArrayList<>();
+        List<Supplier> suppliers = supplierDao.fetchSuppliersByName(searchText);
+        for (Supplier sup:suppliers){
+            responseSupplierDtoList.add(new ResponseSupplierDto(
+                    sup.getId(),
+                    sup.getName(),
+                    sup.getContactPerson(),
+                    sup.getContactNumber(),
+                    sup.getEmail(),
+                    sup.getAddress1(),
+                    sup.getAddress2(),
+                    sup.getCity(),
+                    sup.getCountry()
+            ));
+        }
+        return responseSupplierDtoList;
+    }
 }

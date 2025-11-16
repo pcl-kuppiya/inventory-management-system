@@ -13,6 +13,8 @@ public interface SupplierBo extends SuperBo {
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public ResponseSupplierDto findById(String id) throws SQLException, ClassNotFoundException;
     public List<ResponseSupplierDto> findAll() throws SQLException, ClassNotFoundException;
+    public String getSupplierId() throws SQLException, ClassNotFoundException;
+    public List<ResponseSupplierDto> getSuppliersByName(String text) throws SQLException, ClassNotFoundException;
 
 
 }
