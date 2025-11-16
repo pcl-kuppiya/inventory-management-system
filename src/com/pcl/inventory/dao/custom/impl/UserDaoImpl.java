@@ -51,8 +51,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public String findById(String s) {
-        return "";
+    public User findById(String s) {
+        return null;
     }
 
     @Override

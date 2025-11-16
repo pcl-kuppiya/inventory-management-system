@@ -34,8 +34,8 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public String findById(String s) {
-        return "";
+    public Category findById(String s) {
+        return null;
     }
 
     @Override

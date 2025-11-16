@@ -61,8 +61,8 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public String findById(String s) {
-        return "";
+    public Product findById(String s) {
+        return null;
     }
 
     @Override
