@@ -29,5 +29,6 @@ public class SupplierManagementFormController {
     public TableColumn colAction;
 
     public void saveOnAction(ActionEvent actionEvent) {
+
     }
 }
