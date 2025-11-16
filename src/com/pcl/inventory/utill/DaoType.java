@@ -1,5 +1,5 @@
 package com.pcl.inventory.utill;
 
 public enum DaoType {
-    USER,CATEGORY,PRODUCT
+    USER,CATEGORY,PRODUCT,SUPPLIER
 }
