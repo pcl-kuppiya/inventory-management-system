@@ -31,42 +31,80 @@ public class ProductDaoImpl implements ProductDao {
 
     }
 
-    @Override
-    public List<Category> getAllCategories() throws SQLException, ClassNotFoundException {
-        List<Category> categoryList=new ArrayList<>();
-        ResultSet set = CrudUtill.execute("SELECT * FROM category");
-        while(set.next()){
-            categoryList.add(new Category(
-                    set.getString(1),
-                    set.getString(2),
-                    set.getString(3)
-            ));
-        }
-        return categoryList;
-    }
+
 
     @Override
     public boolean save(Product product) throws SQLException, ClassNotFoundException {
-        return false;
+     return CrudUtill.execute("INSERT INTO product VALUES(?,?,?,?,?,?,?,?)",
+                product.getId(),
+                product.getName(),
+                product.getUnitPrice(),
+              product.getStock(),
+              product.getDescription(),
+              product.getCategory(),
+              product.getUser(),
+              product.getSupplier()
+              );
     }
 
     @Override
     public boolean update(Product product) throws SQLException, ClassNotFoundException {
-        return false;
+     return   CrudUtill.execute("UPDATE product SET name=?,unit_price=?,stock=?,description=?,category=?,supplier_id=?,user_id=? WHERE id=?",
+               product.getName(),
+               product.getUnitPrice(),
+               product.getStock(),
+               product.getDescription(),
+               product.getCategory(),
+               product.getUser()
+               );
     }
 
     @Override
     public boolean delete(String s) throws SQLException, ClassNotFoundException {
-        return false;
+        return false;//yet to implement
     }
 
     @Override
-    public Product findById(String s) {
-        return null;
+    public Product findById(String s) throws SQLException, ClassNotFoundException {
+      ResultSet set= CrudUtill.execute("SELECT * FROM supplier WHERE id=?",s);
+      if (set.next()){
+          return new Product(
+
+                          set.getString(1),
+                          set.getString(2),
+                          set.getDouble(3),
+                          set.getInt(4),
+                          set.getString(5),
+                          set.getString(6),
+                          set.getString(7),
+                          set.getString(8)
+
+          );
+      }
+      return null;
     }
 
     @Override
-    public List<Product> findAll() {
-        return List.of();
+    public List<Product> findAll() throws SQLException, ClassNotFoundException {
+        List<Product> products = new ArrayList<>();
+        ResultSet set = CrudUtill.execute("SELECT * FROM product");
+        while (set.next()){
+            products.add(
+                    new Product(
+
+                            set.getString(1),
+                            set.getString(2),
+                            set.getDouble(3),
+                            set.getInt(4),
+                            set.getString(5),
+                            set.getString(6),
+                            set.getString(7),
+                            set.getString(8)
+
+                    )
+            );
+        }
+        return products;
+
     }
 }

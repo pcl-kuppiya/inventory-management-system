@@ -5,15 +5,17 @@ public class ResponseUserDto {
     private String name;
     private String statusCode;
     private String message;
+    private String UserId;
 
     public ResponseUserDto() {
     }
 
-    public ResponseUserDto(String email, String name, String statusCode, String message) {
+    public ResponseUserDto(String email, String name, String statusCode, String message, String userId) {
         this.email = email;
         this.name = name;
         this.statusCode = statusCode;
         this.message = message;
+        UserId = userId;
     }
 
     public String getEmail() {
@@ -46,5 +48,13 @@ public class ResponseUserDto {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

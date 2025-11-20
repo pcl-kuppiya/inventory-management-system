@@ -35,17 +35,19 @@ public class UserBoImpl implements UserBo {
         if (user!=null){
             if (new PasswordManager().check(password,user.getPassword())){
                 return new ResponseUserDto(
-                        user.getEmail(),
+                 user.getEmail(),
                         user.getDisplayName(),
-                        "200",
-                        "Login successful"
+                       "200" ,
+                        "Authentication success",
+                        user.getId()
                 );
             }
             return new ResponseUserDto(
                     user.getEmail(),
                     null,
                     "401",
-                    "Password incorrect"
+                    "Password incorrect",
+                    null
             );
         }
         return null;

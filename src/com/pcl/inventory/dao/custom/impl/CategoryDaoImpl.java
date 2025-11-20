@@ -39,8 +39,17 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public List<Category> findAll() {
-        return List.of();
+    public List<Category> findAll() throws SQLException, ClassNotFoundException {
+        List<Category> categoryList=new ArrayList<>();
+        ResultSet set = CrudUtill.execute("SELECT * FROM category");
+        while(set.next()){
+            categoryList.add(new Category(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3)
+            ));
+        }
+        return categoryList;
     }
 
     @Override

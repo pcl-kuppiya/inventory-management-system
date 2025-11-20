@@ -4,6 +4,7 @@ import com.pcl.inventory.bo.BoFactory;
 import com.pcl.inventory.bo.custom.UserBo;
 import com.pcl.inventory.dto.response.ResponseUserDto;
 import com.pcl.inventory.utill.BoType;
+import com.pcl.inventory.utill.tools.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,6 +27,7 @@ public class LoginFormController {
             ResponseUserDto responseLogin = userBo.login(txtEmail.getText(), txtPassowrd.getText());
             if (responseLogin != null) {
                 if (responseLogin.getStatusCode().equals("200")) {
+                    Session.setLoggedUserId(responseLogin.getUserId());
                     setUi("AdminPanel");
                     new Alert(Alert.AlertType.INFORMATION,"Welocme : "+responseLogin.getName()).show();
 

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface ProductDao extends CrudDao<Product,String> {
     public Product getLastProduct() throws SQLException, ClassNotFoundException;
-    public List<Category> getAllCategories() throws SQLException, ClassNotFoundException;
+
 
 }
