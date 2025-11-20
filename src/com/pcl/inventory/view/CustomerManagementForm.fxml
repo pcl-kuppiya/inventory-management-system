@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane opacity="0.95" prefHeight="400.0" prefWidth="774.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pcl.inventory.controller.CustomerManagementFormController">
    <children>
       <Label layoutX="22.0" layoutY="14.0" text="Customer Mangement" textFill="#07076b">
@@ -18,36 +17,36 @@
       </Label>
       <AnchorPane layoutX="14.0" layoutY="51.0" prefHeight="340.0" prefWidth="746.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
-            <TextField layoutX="14.0" layoutY="14.0" promptText="Search Customers" />
+            <TextField fx:id="txtSearch" layoutX="14.0" layoutY="14.0" promptText="Search Customers" />
             <Label layoutX="10.0" layoutY="49.0" text="Customer Information" textFill="#07076b">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="18.0" layoutY="81.0" prefHeight="25.0" prefWidth="125.0" promptText="Customer Id" />
-            <TextField layoutX="167.0" layoutY="81.0" prefHeight="25.0" prefWidth="157.0" promptText="First Name" />
-            <TextField layoutX="351.0" layoutY="81.0" prefHeight="25.0" prefWidth="125.0" promptText="Last Name" />
-            <TextField layoutX="520.0" layoutY="81.0" prefHeight="25.0" prefWidth="202.0" promptText="Email" />
-            <TextField layoutX="17.0" layoutY="120.0" prefHeight="25.0" prefWidth="125.0" promptText="Contact " />
-            <TextField layoutX="167.0" layoutY="120.0" prefHeight="25.0" prefWidth="139.0" promptText="Address  Line 1" />
-            <TextField layoutX="335.0" layoutY="120.0" prefHeight="25.0" prefWidth="166.0" promptText="Address  Line 2" />
-            <TextField layoutX="523.0" layoutY="120.0" prefHeight="25.0" prefWidth="118.0" promptText="City" />
-            <Button layoutX="670.0" layoutY="120.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: #27ae60;" text="Save" textFill="#f8f8f8">
+            <TextField fx:id="txtId" layoutX="18.0" layoutY="81.0" prefHeight="25.0" prefWidth="125.0" promptText="Customer Id" />
+            <TextField fx:id="txtFName" layoutX="167.0" layoutY="81.0" prefHeight="25.0" prefWidth="157.0" promptText="First Name" />
+            <TextField fx:id="txtLName" layoutX="351.0" layoutY="81.0" prefHeight="25.0" prefWidth="125.0" promptText="Last Name" />
+            <TextField fx:id="txtEmail" layoutX="520.0" layoutY="81.0" prefHeight="25.0" prefWidth="202.0" promptText="Email" />
+            <TextField fx:id="txtContact" layoutX="17.0" layoutY="120.0" prefHeight="25.0" prefWidth="125.0" promptText="Contact " />
+            <TextField fx:id="txtAddress1" layoutX="167.0" layoutY="120.0" prefHeight="25.0" prefWidth="139.0" promptText="Address  Line 1" />
+            <TextField fx:id="txtAddress2" layoutX="335.0" layoutY="120.0" prefHeight="25.0" prefWidth="166.0" promptText="Address  Line 2" />
+            <TextField fx:id="txtCity" layoutX="523.0" layoutY="120.0" prefHeight="25.0" prefWidth="118.0" promptText="City" />
+            <Button fx:id="btnSave" layoutX="670.0" layoutY="120.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: #27ae60;" text="Save" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <TableView layoutX="18.0" layoutY="205.0" prefHeight="107.0" prefWidth="715.0">
+            <TableView fx:id="tblCustomer" layoutX="18.0" layoutY="205.0" prefHeight="107.0" prefWidth="715.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="#Id" />
-                <TableColumn prefWidth="75.0" text="F_Name" />
-                  <TableColumn prefWidth="75.0" text="L_Name" />
-                  <TableColumn prefWidth="75.0" text="Email" />
-                  <TableColumn prefWidth="75.0" text="Contact" />
-                  <TableColumn prefWidth="75.0" text="Address 1" />
-                  <TableColumn prefWidth="106.0" text="Address 2" />
-                  <TableColumn prefWidth="95.0" text="City" />
-                  <TableColumn prefWidth="63.0" text="Action" />
+                <TableColumn fx:id="colId" prefWidth="75.0" text="#Id" />
+                <TableColumn fx:id="colFName" prefWidth="75.0" text="F_Name" />
+                  <TableColumn fx:id="colLName" prefWidth="75.0" text="L_Name" />
+                  <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+                  <TableColumn fx:id="colContact" prefWidth="75.0" text="Contact" />
+                  <TableColumn fx:id="colAddress" prefWidth="75.0" text="Address 1" />
+                  <TableColumn fx:id="colAddress2" prefWidth="106.0" text="Address 2" />
+                  <TableColumn fx:id="colCity" prefWidth="95.0" text="City" />
+                  <TableColumn fx:id="colAction" prefWidth="63.0" text="Action" />
               </columns>
             </TableView>
             <Label layoutX="18.0" layoutY="170.0" text="Customer List" textFill="#07076b">

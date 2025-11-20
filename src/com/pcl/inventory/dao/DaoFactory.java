@@ -1,9 +1,6 @@
 package com.pcl.inventory.dao;
 
-import com.pcl.inventory.dao.custom.impl.CategoryDaoImpl;
-import com.pcl.inventory.dao.custom.impl.ProductDaoImpl;
-import com.pcl.inventory.dao.custom.impl.SupplierDaoImpl;
-import com.pcl.inventory.dao.custom.impl.UserDaoImpl;
+import com.pcl.inventory.dao.custom.impl.*;
 import com.pcl.inventory.utill.DaoType;
 
 public class DaoFactory {
@@ -22,6 +19,8 @@ public class DaoFactory {
             case CATEGORY:return (T) new CategoryDaoImpl();
             case PRODUCT:return (T) new ProductDaoImpl();
             case SUPPLIER:return (T) new SupplierDaoImpl();
+            case CUSTOMER:return (T) new CustomerDaoImpl();
+            case CUSTOMERCONTACT:return (T) new CustomerContactDaoImpl();
                 default:return null;
         }
     }
